@@ -28,6 +28,35 @@ class Cuenta {
         return this.balance;
     };
 
+    convertirAAda(usdt) {
+        let ada = 1.4;
+        comision = (usdt * 0.5) / 100;
+        this.balance = (usdt - comision) / ada;
+        return this.balance;
+    };
+
+    convertirADot(usdt) {
+        let dot = 41;
+        comision = (usdt * 0.5) / 100;
+        this.balance = (usdt - comision) / dot;
+        return this.balance;
+    };
+
+    convertirASol(usdt) {
+        let sol = 77;
+        comision = (usdt * 0.5) / 100;
+        this.balance = (usdt - comision) / sol;
+        return this.balance;
+    };
+
+    convertirADoge(usdt) {
+        let doge = 0.6;
+        comision = (usdt * 0.5) / 100;
+        this.balance = (usdt - comision) / doge;
+        return this.balance;
+    };
+
+
 };
 
 
@@ -36,10 +65,24 @@ let usdt;
 let max;
 let balance = 4000;
 const cuenta = new Cuenta('Emir Maya', '24', 'cornu 1234', balance);
-let convertir = prompt(`a que desea convertir sus usdt? eth o btc`).toLowerCase();
+
+
+const cryptos = [`BTC `, `ETH`, `ADA`, `DOT`, `DOGE`, `SOL`];
+const stableCoins = [`USDT`, `DAI`, `USDC`];
+let convertir = prompt(`a que desea convertir sus USDT?`).toUpperCase();
+//DEPENDE LO QUE ESCRIBA BUSCAREMOS SI ESTA LA CRYPTO O NO CON UN FIND
+let encontrar;
+do {
+    encontrar = cryptos.find(elemento => elemento === convertir);
+    if (encontrar) {
+        alert(`La criptomoneda ${convertir} está disponible`);
+    } else {
+        convertir = prompt(`La cryptomoneda no se encuentra, escriba otra`).toUpperCase();
+    };
+} while (encontrar != convertir);
 
 switch (convertir) {
-    case `eth`:
+    case `ETH`:
         max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
         if (max == 'si') {
             alert(`${cuenta.convertirAEth(balance)} ETH con una comisión de ${comision} usdt`);
@@ -51,15 +94,10 @@ switch (convertir) {
                 usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a eth`));
                 alert(`${cuenta.convertirAEth(usdt)} ETH con una comisión de ${comision} usdt`);
             };
-        }; 
-        //quería hacerlo un poco más complejo, es decir si pongo que si, convierte todo el balance a la crypto
-        // y si no, elijo un monto menor. El problema es que en console no me sale ningun error y tampoco me ejecutaba el alert así que por ahora lo dejo más simple
-
-        // usdt = Number(prompt(`Ingrese la cantidad de usdt a convertir a eth`));
-        // alert(`${cuenta.convertirAEth(usdt)} BTC con una comisión de ${comision} usdt`);
+        };
         break;
 
-    case `btc`:
+    case `BTC`:
         max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
         if (max == 'si') {
             alert(`${cuenta.convertirABtc(balance)} BTC con una comisión de ${comision} usdt`);
@@ -71,7 +109,66 @@ switch (convertir) {
                 usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a BTC`));
                 alert(`${cuenta.convertirABtc(usdt)} BTC con una comisión de ${comision} usdt`);
             };
-        }; 
+        };
+        break;
+    case `ADA`:
+        max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
+        if (max == 'si') {
+            alert(`${cuenta.convertirAAda(balance)} ADA con una comisión de ${comision} usdt`);
+        } else if (max == 'no') {
+            usdt = Number(prompt(`Ingrese la cantidad de usdt a convertir a ADA`));
+            if (usdt <= balance) {
+                alert(`${cuenta.convertirAAda(usdt)} ADA con una comisión de ${comision} usdt`);
+            } else {
+                usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a ADA`));
+                alert(`${cuenta.convertirAAda(usdt)} ADA con una comisión de ${comision} usdt`);
+            };
+        };
+        break;
+
+    case `DOGE`:
+        max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
+        if (max == 'si') {
+            alert(`${cuenta.convertirADoge(balance)} DOGE con una comisión de ${comision} usdt`);
+        } else if (max == 'no') {
+            usdt = Number(prompt(`Ingrese la cantidad de usdt a convertir a DOGE`));
+            if (usdt <= balance) {
+                alert(`${cuenta.convertirADoge(usdt)} DOGE con una comisión de ${comision} usdt`);
+            } else {
+                usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a DOGE`));
+                alert(`${cuenta.convertirADoge(usdt)} DOGE con una comisión de ${comision} usdt`);
+            };
+        };
+        break;
+
+    case `DOT`:
+        max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
+        if (max == 'si') {
+            alert(`${cuenta.convertirADot(balance)} DOT con una comisión de ${comision} usdt`);
+        } else if (max == 'no') {
+            usdt = Number(prompt(`Ingrese la cantidad de usdt a convertir a DOT`));
+            if (usdt <= balance) {
+                alert(`${cuenta.convertirADot(usdt)} DOT con una comisión de ${comision} usdt`);
+            } else {
+                usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a DOT`));
+                alert(`${cuenta.convertirADot(usdt)} DOT con una comisión de ${comision} usdt`);
+            };
+        };
+        break;
+
+        case `SOL`:
+        max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
+        if (max == 'si') {
+            alert(`${cuenta.convertirASol(balance)} SOL con una comisión de ${comision} usdt`);
+        } else if (max == 'no') {
+            usdt = Number(prompt(`Ingrese la cantidad de usdt a convertir a SOL`));
+            if (usdt <= balance) {
+                alert(`${cuenta.convertirASol(usdt)} SOL con una comisión de ${comision} usdt`);
+            } else {
+                usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a SOL`));
+                alert(`${cuenta.convertirASol(usdt)} SOL con una comisión de ${comision} usdt`);
+            };
+        };
         break;
 
     default:
