@@ -192,12 +192,12 @@ switch (convertir) {
 };
 
 // creo una lista de crypto
-let cryptoList = [{ id: 1, nombre: "ETH", precio: 4000 }, 
-{ id: 1, nombre: "BTC", precio: 40000 },
-{ id: 1, nombre: "ADA", precio: 1.4 },
-{ id: 1, nombre: "DOT", precio: 41 },
-{ id: 1, nombre: "DOGE", precio: 0.6 },
-{ id: 1, nombre: "SOL", precio: 77 }];
+let cryptoList = [{nombre: "ETH", precio: 4000 }, 
+{ nombre: "BTC", precio: 40000 },
+{ nombre: "ADA", precio: 1.4 },
+{ nombre: "DOT", precio: 41 },
+{ nombre: "DOGE", precio: 0.6 },
+{ nombre: "SOL", precio: 77 }];
 
 // recorro la lista con un for each
 for(const crypto of cryptoList){
