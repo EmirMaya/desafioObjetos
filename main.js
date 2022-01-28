@@ -56,7 +56,6 @@ class Cuenta {
         return this.balance;
     };
 
-
 };
 
 
@@ -67,7 +66,7 @@ let balance = 4000;
 const cuenta = new Cuenta('Emir Maya', '24', 'cornu 1234', balance);
 
 
-const cryptos = [`BTC `, `ETH`, `ADA`, `DOT`, `DOGE`, `SOL`];
+const cryptos = [`BTC`, `ETH`, `ADA`, `DOT`, `DOGE`, `SOL`];
 const stableCoins = [`USDT`, `DAI`, `USDC`];
 let convertir = prompt(`a que desea convertir sus USDT?`).toUpperCase();
 //DEPENDE LO QUE ESCRIBA BUSCAREMOS SI ESTA LA CRYPTO O NO CON UN FIND
@@ -80,6 +79,22 @@ do {
         convertir = prompt(`La cryptomoneda no se encuentra, escriba otra`).toUpperCase();
     };
 } while (encontrar != convertir);
+
+//Todavia no funciona pero quiero que una sola funcion convierta todas las monedas
+// if (convertir === `ETH` || convertir === `BTC` || convertir === `DOT` || convertir === `ADA` || convertir === `SOL`|| convertir === `DOGE`){
+//     max = prompt(`¿Quiere convertir todo su balance? si/no`).toLowerCase();
+//         if (max == 'si') {
+//             alert(`${cuenta.convertirAEth(balance)} LUCIA con una comisión de ${comision} usdt`);
+//         } else if (max == 'no') {
+//             usdt = Number(prompt(`Ingrese la cantidad de usdt a convertir a ${convertir}`));
+//             if (usdt <= balance) {
+//                 alert(`${cuenta.convertirAEth(usdt)} ${convertir} con una comisión de ${comision} usdt`);
+//             } else {
+//                 usdt = Number(prompt(`Ingrese la cantidad de usdt menora su balance máximo para convertir a ${convertir}`));
+//                 alert(`${cuenta.convertirAEth(usdt)} ${convertir} con una comisión de ${comision} usdt`);
+//             };
+//         };
+// }
 
 switch (convertir) {
     case `ETH`:
@@ -175,3 +190,27 @@ switch (convertir) {
         alert(`¡Error, no ha seleccionado nada!`)
         break;
 };
+
+// creo una lista de crypto
+let cryptoList = [{ id: 1, nombre: "ETH", precio: 4000 }, 
+{ id: 1, nombre: "BTC", precio: 40000 },
+{ id: 1, nombre: "ADA", precio: 1.4 },
+{ id: 1, nombre: "DOT", precio: 41 },
+{ id: 1, nombre: "DOGE", precio: 0.6 },
+{ id: 1, nombre: "SOL", precio: 77 }];
+
+// recorro la lista con un for each
+for(const crypto of cryptoList){
+// por cada crypto creo un contenedor
+let contenedor = document.createElement("div");
+// cada contenedor tiene un h2 un h3 y un form para convertir
+contenedor.innerHTML = `<h2>Convertir usdt a ${crypto.nombre}</h2>
+<h3>El precio hoy es $ ${crypto.precio}</h3>
+ <form>
+     <input type="text">
+     <button>Convertir</button>
+ </form>`;
+ 
+
+document.body.appendChild(contenedor); }
+
