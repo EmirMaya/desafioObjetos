@@ -5,8 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+        integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <title>Bitarg | El exchange de cryptomonedas más efectivo</title>
 </head>
 
 <body>
@@ -24,15 +28,66 @@
     </header>
 
     <main>
-        <div>
-            <h2>Convertir usdt</h2>
+        <h2>Convertir usdt</h2>
+        <div class="boxForm">
+            <form class="converForm">
+                <select class="cryptoList" name="crypto">
+                    <option value="" selected>Seleccione una crypto ...</option>
+                    <option value="BTC">BTC</option>
+                    <option value="ETH">ETH</option>
+                    <option value="ADA">ADA</option>
+                    <option value="DOT">DOT</option>
+                    <option value="DOGE">DOGE</option>
+                    <option value="SOL">SOL</option>
+                </select>
+                <input class="usdtInput">
+                <button type="button" class="convertButton">Convertir</button>
+            </form>
+        </div>
+        <div  class="boxForm">
             <form>
                 <input class="convertInput">
-                <button type="button" class="convertButton">Convertir</button>
+                <p></p>
             </form>
         </div>
     </main>
 
+    <footer>
+        <div class="contactContainer">
+            <div class="iconsContainer">
+                <h5 class="contactText">
+                    Seguinos
+                </h5>
+                <nav class="navRedes">
+                    <ul class="redesUl">
+                        <li class="footUl">
+                            <a href="https://www.facebook.com" target="blank">
+                                <i class="fab fa-facebook-square"></i>
+                            </a>
+                        </li>
+                        <li class="footUl">
+                            <a href="https://www.instagram.com" target="blank">
+                                <i class="fab fa-instagram-square"></i>
+                            </a>
+                        </li>
+                        <li class="footUl">
+                            <a href="https://www.twitter.com" target="blank">
+                                <i class="fab fa-twitter-square"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="copyrightBox">
+            <p class="copyrightText">
+                © Derechos Reservados. BitArg. 2021
+            </p>
+        </div>
+    </footer>
+
+    <!-- JS -->
     <script src="./main.js"></script>
 </body>
 
