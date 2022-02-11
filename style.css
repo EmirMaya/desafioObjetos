@@ -79,6 +79,11 @@ h2 {
     background-color: royalblue;
 }
 
+.comision {
+    color: blueviolet;
+}
+
+
 footer {
     background-image: linear-gradient(royalblue, lightblue);
 }
