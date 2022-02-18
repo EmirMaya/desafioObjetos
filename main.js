@@ -77,7 +77,7 @@ const cryptoList = document.querySelector(".cryptoList");
 let inputUsdt = document.querySelector(".usdtInput");
 
 let input = document.querySelector(".convertInput");
-let crp='';
+let crp = '';
 
 // hago un evento para el select, que a su vez tendra todos los eventos de las conversiones
 cryptoList.addEventListener('change', (evt) => {
@@ -156,8 +156,20 @@ cryptoList.addEventListener('change', (evt) => {
 //cuando convierto muestro una p avisando que se realizo la conversion
 $(document).ready(function () {
   $('.convertButton').on('click', function () {
-    $( "main" ).append(`<p class="comision">¡Conversión Realizada! Cambiaste tus USDT por ${crp}</p>`);
+    $("main").append(`<p class="comision">¡Conversión Realizada! Cambiaste tus USDT por ${crp}</p>`);
   });
 });
+
+
+$('.formEmail').submit(function (e) {
+  $.ajax({
+    type: $('.formEmail').attr('method'), 
+    url: $('.formEmail').attr('action'),
+    data: $('.formEmail').serialize(),
+    success: function (data) { alert('Email enviado, te enteraras de todas las novedades !!!'); } 
+  });
+  e.preventDefault();
+});
+
 
 
