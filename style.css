@@ -3,13 +3,26 @@
     padding: 0;
     box-sizing: inherit;
 }
-
+/* HEADER */
+.balance {
+    color: white;
+    display: flex;
+    padding: 3px;
+}
+.cuenta {
+    background-color: gray;
+    border-radius: 8px;
+}
 header {
+    padding: 15px;
     background-color: royalblue;
     color: white;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.274);
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.383);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 h1 {
@@ -17,22 +30,14 @@ h1 {
     font-style: italic;
 }
 
-ul {
-    background-color: grey;
-    padding: 10px;
-    display: flex;
-    justify-content: space-around;
-}
 
-li {
-    list-style-type: none;
-    font-size: 20px;
-}
 
 a {
     color: white;
     text-decoration: none;
 }
+
+/* MAIN */
 main{
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     margin: 30px 50px;
@@ -49,6 +54,8 @@ h2 {
     border-bottom: 1px solid royalblue;
     width: 100%;
 }
+
+
 
 .boxForm {
     padding: 30px;
@@ -83,7 +90,35 @@ h2 {
     color: blueviolet;
 }
 
+.tablaPrice {
+    margin-top: 40px;
+    min-width: 400px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.383);
+    border-radius: 5px;
+}
 
+.tablaPrice thead{
+    background-color: royalblue;
+    color: white;
+    border-radius: 5px;
+}
+
+.tablaPrice th, .tablaPrice td {
+    padding: 10px 10px;
+    text-align: center;
+}
+
+.tablaPrice tbody tr:nth-of-type(even) {
+    background-color: rgb(240, 243, 255);
+}
+
+h4 {
+    padding-top: 30px;
+    color: royalblue;
+    border-bottom: 1px solid royalblue;
+}
+
+/* FOOTER */
 footer {
     background-image: linear-gradient(royalblue, lightblue);
 }
@@ -94,7 +129,9 @@ footer {
 
 .mailContainer {
     display: flex;
+    justify-content: center;
     align-items: center;
+    padding: 20px;
 }
 
 .mailBar, .suscribeButton {
@@ -109,8 +146,18 @@ footer {
 }
 
 
+ul {
+    background-color: cornflowerblue;
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+}
 
 .contactText {
+
+    text-align: center;
     color: darkblue;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 20px;

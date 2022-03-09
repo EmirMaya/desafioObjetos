@@ -10,25 +10,20 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <title>Bitarg | El exchange de cryptomonedas más efectivo</title>
+    <title>ConvertArg | El exchange de cryptomonedas más efectivo</title>
 </head>
 
 <body>
-    <header>
-        <h1>Bitarg</h1>
-        <ul>
-            <li><a href="">
-                    Inicio</a>
-            </li>
-            <li><a href="">
-                    cambio</a>
-            </li>
+    <header id="bal">
+        <a href="index.html">
+            <h1>CONVERTARG</h1>
+        </a>
 
-        </ul>
     </header>
 
     <main>
-        <h2>Convertir usdt</h2>
+        <h2>Convertir USDT</h2>
+
         <div class="boxForm">
             <form class="converForm">
                 <select class="cryptoList" name="crypto">
@@ -47,23 +42,31 @@
         <div class="boxForm" id="result">
             <form>
                 <input class="convertInput">
+
                 <p class="comision"></p>
 
             </form>
         </div>
+
+
+        <div>
+            <table class="tablaPrice">
+                <thead>
+                    <tr>
+                        <th>Símbolo</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody id="data">
+                </tbody>
+            </table>
+        </div>
+        <h4>Historial de conversiones</h4>
     </main>
 
     <footer>
         <div class="contactContainer">
-            <div class="mailContainer">
 
-                <div>
-                    <form class="formEmail" method="post" action="https://jsonplaceholder.typicode.com/posts">
-                        <input class="mailBar" type="email" placeholder="e-mail">
-                        <button class="suscribeButton" type="submit">Suscribir</button>
-                    </form>
-                </div>
-            </div>
             <div class="iconsContainer">
                 <h5 class="contactText">
                     Seguinos
@@ -89,7 +92,14 @@
                 </nav>
             </div>
         </div>
-
+        <div class="mailContainer">
+            <div>
+                <form class="formEmail" method="post" action="https://jsonplaceholder.typicode.com/posts">
+                    <input class="mailBar" type="email" placeholder="e-mail">
+                    <button class="suscribeButton" type="submit">Suscribir</button>
+                </form>
+            </div>
+        </div>
         <div class="copyrightBox">
             <h5 class="copyrightText">
                 © Derechos Reservados. BitArg. 2021
