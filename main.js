@@ -1,4 +1,6 @@
 
+
+
 let btc;
 let eth;
 let ada;
@@ -17,39 +19,47 @@ const mostrarData = (data) => {
   //voy a ir recorriendo la lista de los pares de precios, y solo voy a agregar a la tabla los que voy a usar
   //ya que con esta api se pueden pasar los precios de todos los pares de binance que son como 13mil
   let body = ''
+  let options = '<option value="" selected disabled>Seleccione una crypto ...</option>'
   for (let i = 0; i < data.length; i++) {
     if (data[i].symbol == 'ETHUSDT') { //entonces si el simbolo es igual al que quiero, en este caso ETHUSDT lo agrego a la tabla
       eth = data[i].price;
-      body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`
+      body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`;
+      options += `<option value="${data[i].symbol}"> ${data[i].symbol}</option>`
     }
 
     if (data[i].symbol == 'BTCUSDT') {
       btc = data[i].price;
       body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`
+      options += `<option value="${data[i].symbol}"> ${data[i].symbol}</option>`
     }
 
     if (data[i].symbol == 'ADAUSDT') {
       ada = data[i].price;
       body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`
+      options += `<option value="${data[i].symbol}"> ${data[i].symbol}</option>`
     }
 
     if (data[i].symbol == 'DOTUSDT') {
       dot = data[i].price;
       body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`
+      options += `<option value="${data[i].symbol}"> ${data[i].symbol}</option>`
     }
 
     if (data[i].symbol == 'DOGEUSDT') {
       doge = data[i].price;
       body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`
+      options += `<option value="${data[i].symbol}"> ${data[i].symbol}</option>`
     }
 
     if (data[i].symbol == 'SOLUSDT') {
       sol = data[i].price;
       body += `<tr><td>${data[i].symbol}</td><td>${data[i].price}</td></tr>`
+      options += `<option value="${data[i].symbol}"> ${data[i].symbol}</option>`
     }
 
   }
   document.getElementById('data').innerHTML = body
+  document.getElementById('listaCrypto').innerHTML = options
 }
 
 
@@ -133,10 +143,14 @@ let inputUsdt = document.querySelector(".usdtInput");
 
 let input = document.querySelector(".convertInput");
 let crp = '';
+
+
+
 // hago un evento para el select, que a su vez tendra todos los eventos de las conversiones
 cryptoList.addEventListener('change', (evt) => {
+
   crp = evt.target.value; //guardo el valor del evento en una ctte
-  if (crp == 'BTC') { // entonces aca hacemos un if, si eligo btc, procede al sgte evento
+  if (crp == 'BTCUSDT') { // entonces aca hacemos un if, si eligo btc, procede al sgte evento
     boton.addEventListener('click', respClick) //si le doy click a convertir donde previamente llene el input de usdt
     function respClick() {
       localStorage.setItem('USDT', inputUsdt.value); //guarda mi cant de usdt
@@ -148,10 +162,10 @@ cryptoList.addEventListener('change', (evt) => {
         const com = document.querySelector('.comision'); // por ultimo agrego una p para mostrar la comision
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
-        alert(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
+        swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
     };
-  } else if (crp == 'ETH') { // lo mismo para las demas cryptos
+  } else if (crp == 'ETHUSDT') { // lo mismo para las demas cryptos
     boton.addEventListener('click', respClick)
     function respClick() {
       localStorage.setItem('USDT', inputUsdt.value);
@@ -163,10 +177,10 @@ cryptoList.addEventListener('change', (evt) => {
         const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
-        alert(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
+        swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
     };
-  } else if (crp == 'ADA') {
+  } else if (crp == 'ADAUSDT') {
     boton.addEventListener('click', respClick)
     function respClick() {
       localStorage.setItem('USDT', inputUsdt.value);
@@ -178,10 +192,10 @@ cryptoList.addEventListener('change', (evt) => {
         const com = document.querySelector('.comsion');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
-        alert(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
+        swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
     };
-  } else if (crp == 'DOT') {
+  } else if (crp == 'DOTUSDT') {
     boton.addEventListener('click', respClick)
     function respClick() {
       localStorage.setItem('USDT', inputUsdt.value);
@@ -193,10 +207,10 @@ cryptoList.addEventListener('change', (evt) => {
         const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
-        alert(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
+        swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
     };
-  } else if (crp == 'DOGE') {
+  } else if (crp == 'DOGEUSDT') {
     boton.addEventListener('click', respClick)
     function respClick() {
       localStorage.setItem('USDT', inputUsdt.value);
@@ -208,10 +222,10 @@ cryptoList.addEventListener('change', (evt) => {
         const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
-        alert(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
+        swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
     };
-  } else if (crp == 'SOL') {
+  } else if (crp == 'SOLUSDT') {
     boton.addEventListener('click', respClick)
     function respClick() {
       localStorage.setItem('USDT', inputUsdt.value);
@@ -223,7 +237,7 @@ cryptoList.addEventListener('change', (evt) => {
         const com = document.querySelector('.comsion');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
-        alert(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
+        swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
     };
   };
@@ -244,7 +258,13 @@ $('.formEmail').submit(function (e) {
     type: $('.formEmail').attr('method'),
     url: $('.formEmail').attr('action'),
     data: $('.formEmail').serialize(),
-    success: function (data) { alert('Email enviado, te enteraras de todas las novedades !!!'); }
+    success: function (data) {
+      swal({
+        title: "¡Te has suscrito!",
+        text: "Te enteraras de todas las novedades",
+        icon: "success",
+      });;
+    }
   });
   e.preventDefault();
 });

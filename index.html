@@ -26,25 +26,18 @@
 
         <div class="boxForm">
             <form class="converForm">
-                <select class="cryptoList" name="crypto">
-                    <option value="" selected>Seleccione una crypto ...</option>
-                    <option value="BTC">BTC</option>
-                    <option value="ETH">ETH</option>
-                    <option value="ADA">ADA</option>
-                    <option value="DOT">DOT</option>
-                    <option value="DOGE">DOGE</option>
-                    <option value="SOL">SOL</option>
+                <select class="cryptoList" id="listaCrypto" name="crypto">
+              
+                    
                 </select>
-                <input class="usdtInput">
+                <input class="usdtInput" type="number">
                 <button type="button" class="convertButton">Convertir</button>
             </form>
         </div>
         <div class="boxForm" id="result">
             <form>
-                <input class="convertInput">
-
+                <input class="convertInput" type="number">
                 <p class="comision"></p>
-
             </form>
         </div>
 
@@ -110,6 +103,7 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="./main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
