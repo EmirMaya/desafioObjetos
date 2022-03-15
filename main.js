@@ -1,6 +1,6 @@
 
 
-
+let balanceTotal = 40000;
 let btc;
 let eth;
 let ada;
@@ -63,12 +63,10 @@ const mostrarData = (data) => {
 }
 
 
-class Cuenta {
-  constructor(nombre, edad, direccion, balance) {
+class Crypto {
+  constructor(nombre, precio) {
     this.nombre = nombre;
-    this.edad = edad;
-    this.direccion = direccion;
-    this.balance = balance;
+    this.precio = precio;
   };
 
   convertirAEth(usdt) {
@@ -79,59 +77,64 @@ class Cuenta {
     //reglas de 3 simple para sacar las conversiones de las cryptos
     comision = (usdt * 0.5) / 100;
     balanceTotal = balanceTotal - comision;
-    this.balance = (usdt - comision) / eth;
-    return this.balance;
+    convert = (usdt - comision) / eth;
+    return convert;
   };
 
   convertirABtc(usdt) {
-
     comision = (usdt * 0.5) / 100;
     balanceTotal = balanceTotal - comision;
-    this.balance = (usdt - comision) / btc;
-    return this.balance;
+    convert = (usdt - comision) / btc;
+    return convert;
   };
 
   convertirAAda(usdt) {
     comision = (usdt * 0.5) / 100;
     balanceTotal = balanceTotal - comision;
-    this.balance = (usdt - comision) / ada;
-    return this.balance;
+    convert = (usdt - comision) / ada;
+    return convert;
   };
 
   convertirADot(usdt) {
     comision = (usdt * 0.5) / 100;
     balanceTotal = balanceTotal - comision;
-    this.balance = (usdt - comision) / dot;
-    return this.balance;
+    convert = (usdt - comision) / dot;
+    return convert;
   };
 
   convertirASol(usdt) {
     comision = (usdt * 0.5) / 100;
     balanceTotal = balanceTotal - comision;
-    this.balance = (usdt - comision) / sol;
-    return this.balance;
+    convert = (usdt - comision) / sol;
+    return convert;
+   
   };
 
   convertirADoge(usdt) {
     comision = (usdt * 0.5) / 100;
     balanceTotal = balanceTotal - comision;
-    this.balance = (usdt - comision) / doge;
-    return this.balance;
+    convert = (usdt - comision) / doge;
+    return convert;
   };
 
 };
 
-let nombre = 'Emir Maya';
 let comision;
 let usdt;
-let max;
-let balanceTotal = 4000;
+let convert;
+
+
 let bal = document.createElement('p')
-bal.innerHTML = `<div class = "cuenta"><h5 class = "balance"> ${nombre}</h5>
-<h5 class = "balance">Balance Total: ${balanceTotal}</h5> </div>`;
+bal.innerHTML = `<div class = "cuenta">
+<h5 class = "balance" id = "balanceId">Balance Total: ${balanceTotal}</h5> </div>`;
 document.getElementById('bal').appendChild(bal);
 let conversion; // esta variable es para mostrar la conversion en el input
-const cuenta = new Cuenta(nombre, '24', 'cornu 1234', balanceTotal);
+const BTC = new Crypto('BTC' , btc );
+const ETH = new Crypto('ETH' , eth );
+const DOT = new Crypto('DOT' , dot );
+const ADA = new Crypto('ADA' , ada );
+const DOGE = new Crypto('DOGE' , doge );
+const SOL = new Crypto('SOL' , sol );
 const cryptos = [`BTC`, `ETH`, `ADA`, `DOT`, `DOGE`, `SOL`];
 
 // basicamente primero llamo al DOM para los inputs y para el boton y el select, cada uno con su clase
@@ -156,7 +159,7 @@ cryptoList.addEventListener('change', (evt) => {
       localStorage.setItem('USDT', inputUsdt.value); //guarda mi cant de usdt
       usdt = localStorage.getItem('USDT'); // se la agrego a una variable
       if (usdt <= balanceTotal) {
-        conversion = cuenta.convertirABtc(usdt); //los convierto a btc
+        conversion = BTC.convertirABtc(usdt); //los convierto a btc
         console.log(usdt);
         console.log(input.value = conversion); //el input muestra el valor de conversion
         const com = document.querySelector('.comision'); // por ultimo agrego una p para mostrar la comision
@@ -164,6 +167,7 @@ cryptoList.addEventListener('change', (evt) => {
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
+      mostrarBalance();
     };
   } else if (crp == 'ETHUSDT') { // lo mismo para las demas cryptos
     boton.addEventListener('click', respClick)
@@ -171,7 +175,7 @@ cryptoList.addEventListener('change', (evt) => {
       localStorage.setItem('USDT', inputUsdt.value);
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
-        conversion = cuenta.convertirAEth(usdt);
+        conversion = ETH.convertirAEth(usdt);
         console.log(usdt);
         console.log(input.value = conversion);
         const com = document.querySelector('.comision');
@@ -179,6 +183,7 @@ cryptoList.addEventListener('change', (evt) => {
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
+      mostrarBalance();
     };
   } else if (crp == 'ADAUSDT') {
     boton.addEventListener('click', respClick)
@@ -186,7 +191,7 @@ cryptoList.addEventListener('change', (evt) => {
       localStorage.setItem('USDT', inputUsdt.value);
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
-        conversion = cuenta.convertirAAda(usdt);
+        conversion = ADA.convertirAAda(usdt);
         console.log(usdt);
         console.log(input.value = conversion);
         const com = document.querySelector('.comsion');
@@ -194,6 +199,7 @@ cryptoList.addEventListener('change', (evt) => {
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
+      mostrarBalance();
     };
   } else if (crp == 'DOTUSDT') {
     boton.addEventListener('click', respClick)
@@ -201,7 +207,7 @@ cryptoList.addEventListener('change', (evt) => {
       localStorage.setItem('USDT', inputUsdt.value);
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
-        conversion = cuenta.convertirADot(usdt);
+        conversion = DOT.convertirADot(usdt);
         console.log(usdt);
         console.log(input.value = conversion);
         const com = document.querySelector('.comision');
@@ -209,6 +215,7 @@ cryptoList.addEventListener('change', (evt) => {
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
+      mostrarBalance();
     };
   } else if (crp == 'DOGEUSDT') {
     boton.addEventListener('click', respClick)
@@ -216,7 +223,7 @@ cryptoList.addEventListener('change', (evt) => {
       localStorage.setItem('USDT', inputUsdt.value);
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
-        conversion = cuenta.convertirADoge(usdt);
+        conversion = DOGE.convertirADoge(usdt);
         console.log(usdt);
         console.log(input.value = conversion);
         const com = document.querySelector('.comision');
@@ -224,6 +231,7 @@ cryptoList.addEventListener('change', (evt) => {
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
+      mostrarBalance();
     };
   } else if (crp == 'SOLUSDT') {
     boton.addEventListener('click', respClick)
@@ -231,7 +239,7 @@ cryptoList.addEventListener('change', (evt) => {
       localStorage.setItem('USDT', inputUsdt.value);
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
-        conversion = cuenta.convertirASol(usdt);
+        conversion = SOL.convertirASol(usdt);
         console.log(usdt);
         console.log(input.value = conversion);
         const com = document.querySelector('.comsion');
@@ -239,6 +247,7 @@ cryptoList.addEventListener('change', (evt) => {
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
       }
+      mostrarBalance();
     };
   };
 });
@@ -270,3 +279,10 @@ $('.formEmail').submit(function (e) {
 });
 
 
+function mostrarBalance() {
+  setText("balanceId",  `Balance Total: ${balanceTotal}`)
+}
+
+function setText(id, text) {
+  document.getElementById(id).innerHTML = text;
+}
