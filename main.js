@@ -107,7 +107,7 @@ class Crypto {
     balanceTotal = balanceTotal - comision;
     convert = (usdt - comision) / sol;
     return convert;
-   
+
   };
 
   convertirADoge(usdt) {
@@ -129,12 +129,12 @@ bal.innerHTML = `<div class = "cuenta">
 <h5 class = "balance" id = "balanceId">Balance Total: ${balanceTotal}</h5> </div>`;
 document.getElementById('bal').appendChild(bal);
 let conversion; // esta variable es para mostrar la conversion en el input
-const BTC = new Crypto('BTC' , btc );
-const ETH = new Crypto('ETH' , eth );
-const DOT = new Crypto('DOT' , dot );
-const ADA = new Crypto('ADA' , ada );
-const DOGE = new Crypto('DOGE' , doge );
-const SOL = new Crypto('SOL' , sol );
+const BTC = new Crypto('BTC', btc);
+const ETH = new Crypto('ETH', eth);
+const DOT = new Crypto('DOT', dot);
+const ADA = new Crypto('ADA', ada);
+const DOGE = new Crypto('DOGE', doge);
+const SOL = new Crypto('SOL', sol);
 const cryptos = [`BTC`, `ETH`, `ADA`, `DOT`, `DOGE`, `SOL`];
 
 // basicamente primero llamo al DOM para los inputs y para el boton y el select, cada uno con su clase
@@ -160,7 +160,7 @@ cryptoList.addEventListener('change', (evt) => {
       usdt = localStorage.getItem('USDT'); // se la agrego a una variable
       if (usdt <= balanceTotal) {
         conversion = BTC.convertirABtc(usdt); //los convierto a btc
-        console.log(usdt);
+
         console.log(input.value = conversion); //el input muestra el valor de conversion
         const com = document.querySelector('.comision'); // por ultimo agrego una p para mostrar la comision
         com.textContent = `La comision es de ${comision} USDT`;
@@ -176,7 +176,7 @@ cryptoList.addEventListener('change', (evt) => {
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
         conversion = ETH.convertirAEth(usdt);
-        console.log(usdt);
+
         console.log(input.value = conversion);
         const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
@@ -192,9 +192,8 @@ cryptoList.addEventListener('change', (evt) => {
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
         conversion = ADA.convertirAAda(usdt);
-        console.log(usdt);
         console.log(input.value = conversion);
-        const com = document.querySelector('.comsion');
+        const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
@@ -208,7 +207,7 @@ cryptoList.addEventListener('change', (evt) => {
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
         conversion = DOT.convertirADot(usdt);
-        console.log(usdt);
+
         console.log(input.value = conversion);
         const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
@@ -224,7 +223,7 @@ cryptoList.addEventListener('change', (evt) => {
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
         conversion = DOGE.convertirADoge(usdt);
-        console.log(usdt);
+
         console.log(input.value = conversion);
         const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
@@ -240,9 +239,9 @@ cryptoList.addEventListener('change', (evt) => {
       usdt = localStorage.getItem('USDT');
       if (usdt <= balanceTotal) {
         conversion = SOL.convertirASol(usdt);
-        console.log(usdt);
+
         console.log(input.value = conversion);
-        const com = document.querySelector('.comsion');
+        const com = document.querySelector('.comision');
         com.textContent = `La comision es de ${comision} USDT`;
       } else {
         swal(`Debe ingresar un valor menor o igual a su balance total ${balanceTotal}`)
@@ -280,7 +279,7 @@ $('.formEmail').submit(function (e) {
 
 
 function mostrarBalance() {
-  setText("balanceId",  `Balance Total: ${balanceTotal}`)
+  setText("balanceId", `Balance Total: ${balanceTotal}`)
 }
 
 function setText(id, text) {
